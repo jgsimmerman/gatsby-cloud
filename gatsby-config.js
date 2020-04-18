@@ -217,7 +217,7 @@ module.exports = {
       },
     },
     // "gatsby-theme-gallery",
-    //`gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify-cms`,
     // {
     //   resolve: "gatsby-theme-auth0",
     //   options: {
