@@ -9,7 +9,7 @@ const getTax = (postalcode) => {
   });
 
   const getTaxRate = (postalCode) => api.get(`/bypostalcode?country=US&postalCode=${postalcode}`);
-
+  
   return {
     getTaxRate,
   };

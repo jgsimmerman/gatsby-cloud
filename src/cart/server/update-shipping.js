@@ -144,6 +144,7 @@ export default async function updateShipping({ stripeApiSecret, body, verbose })
 	let ship2 = ship[2]
 
 	let taxRate = getTax(postalcode);
+	console.log(taxRate)
 	//let itemTax = 0;
 	// const asyncTax = async() => {
 	// 	try {
@@ -168,7 +169,7 @@ export default async function updateShipping({ stripeApiSecret, body, verbose })
 	// }
 
 	//	let taxRate = createTaxAPI(postalCode)
-	let itemTax = Math.ceil(subtotal*taxRate)
+	let itemTax = Math.ceil(subtotal*.08)
 
 	let tax0 = Math.ceil(ship0*.08)
   let tax1 = Math.ceil(ship1*.08)
