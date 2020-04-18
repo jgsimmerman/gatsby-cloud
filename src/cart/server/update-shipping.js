@@ -143,9 +143,32 @@ export default async function updateShipping({ stripeApiSecret, body, verbose })
 	let ship1 = ship[1]
 	let ship2 = ship[2]
 
+	let taxRate = 0;
+	let itemTax = 0;
+	const asyncTax = async() => {
+		try {
+			const response = await axios({
+									url:`https://rest.avatax.com/api/v2/taxrates/bypostalcode?country=US&postalCode=${postalcode}`,
+									method: 'get',
+									headers: {'Authorization': 'Basic MjAwMDE2NzI2Mjo5OUYxNzM2OEQzMEUzMTg1'}
+							});
+			taxRate = response.data.totalRate
+			//console.log('data ', globalTax)
+		}
+		catch (err){
+			console.log(err)
+		}
+	}
+
+	const showTax = async () => {
+		await asyncTax();
+		console.log(taxRate)
+		itemTax = Math.ceil(subtotal*taxRate)
+		return itemTax
+	}
 
 	//	let taxRate = createTaxAPI(postalCode)
-	let itemTax = Math.ceil(subtotal*.08)
+	//let itemTax = Math.ceil(subtotal*showTax())
 
 	let tax0 = Math.ceil(ship0*.08)
   let tax1 = Math.ceil(ship1*.08)
@@ -197,7 +220,7 @@ export default async function updateShipping({ stripeApiSecret, body, verbose })
           "parent": null,
           "type": "tax",
           "description": "Sales tax",
-          "amount": itemTax,
+          "amount": showTax,
           "currency": "usd"
         }
       ],
