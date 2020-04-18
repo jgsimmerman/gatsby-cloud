@@ -220,7 +220,7 @@ export default async function updateShipping({ stripeApiSecret, body, verbose })
           "parent": null,
           "type": "tax",
           "description": "Sales tax",
-          "amount": showTax,
+          "amount": showTax(),
           "currency": "usd"
         }
       ],
