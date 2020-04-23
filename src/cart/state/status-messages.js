@@ -1,8 +1,8 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const statusMessagesState = new State({
-	errors: [],
-	info: [],
-})
+  errors: [],
+  info: [],
+});
 
-export default statusMessagesState
+export default statusMessagesState;

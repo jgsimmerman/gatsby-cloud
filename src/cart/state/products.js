@@ -1,16 +1,20 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const defaults = {
-	products: [],
-	shippable: true,
-}
+  products: [],
+  shippable: true,
+};
 
-const productsState = new State({...defaults}, {
-	reset(){
-		this.setState({...defaults})
-	},
-}, {
-	localStorage: `zygoteCart`,
-})
+const productsState = new State(
+  { ...defaults },
+  {
+    reset() {
+      this.setState({ ...defaults });
+    },
+  },
+  {
+    localStorage: `zygoteCart`,
+  }
+);
 
-export default productsState
+export default productsState;

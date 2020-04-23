@@ -1,6 +1,5 @@
 // import Stripe from "stripe";
 
-
 // // const coupons = async ({ response, info, preFetchData }) => {
 // const coupons = async ({ response, info, preFetchData, data }) => {
 //   var stripe = require('stripe')('sk_live_');
@@ -46,7 +45,7 @@
 //         discount: 0,
 //         label: '',
 //         type: '',
-//       }; 
+//       };
 //       if(check.code) {
 //         let couponArray = couponObj.find(obj => obj.id == check.code)
 //         coupon.code = couponArray.id;

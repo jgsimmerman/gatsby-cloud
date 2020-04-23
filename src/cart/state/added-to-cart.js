@@ -1,7 +1,7 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const addedToCartState = new State({
-	addedToCart: false,
-})
+  addedToCart: false,
+});
 
-export default addedToCartState
+export default addedToCartState;

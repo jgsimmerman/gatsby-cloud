@@ -91,7 +91,7 @@ exports.createPages = ({ graphql, actions }) => {
           const next =
             index === posts.length - 1 ? null : posts[index + 1].node;
 
-          if (node.frontmatter.posttype === "guides") {
+          if (node.frontmatter.posttype === 'guides') {
             // OR if(node.frontmatter.id === 1000) similar to above tags function
             createPage({
               path,
@@ -102,8 +102,7 @@ exports.createPages = ({ graphql, actions }) => {
                 next,
               },
             });
-          }
-          else {
+          } else {
             createPage({
               path,
               component: postTemplate,
@@ -148,7 +147,6 @@ exports.createPages = ({ graphql, actions }) => {
         //     },
         //   });
         // });
-
       })
     );
   });

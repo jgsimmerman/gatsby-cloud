@@ -35,7 +35,6 @@
 // //               rate1 = response.data.totalRate
 // //               return response.data.totalRate
 // //             })
-            
 
 // // let rate2 = taxRate(postalcode)
 // // //console.log(`tax rate: ${taxRate}`)

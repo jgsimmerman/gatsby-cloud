@@ -1,2 +1,2 @@
-const inputs = {}
-export default inputs
+const inputs = {};
+export default inputs;

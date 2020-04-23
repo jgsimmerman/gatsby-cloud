@@ -17,11 +17,11 @@
 //         }
 //       }
 //     `}
-    
+
 //     render={({ coupons }) => (
 //       <div>
 //         {coupons.edges.map(({ node: coupon }) => (
-//           <p key={coupon.id}>Object: {coupon.object} | Percent Off: {coupon.percent_off} | id: {coupon.id} | Duration: {coupon.duration}</p> 
+//           <p key={coupon.id}>Object: {coupon.object} | Percent Off: {coupon.percent_off} | id: {coupon.id} | Duration: {coupon.duration}</p>
 //         ))}
 //       </div>
 //     )}

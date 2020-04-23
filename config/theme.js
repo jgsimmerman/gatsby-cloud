@@ -1,8 +1,9 @@
 export const colors = {
-  white: { // purple
-    base:  'hsl(285, 60%, 25%)', //'#fff',
+  white: {
+    // purple
+    base: 'hsl(285, 60%, 25%)', //'#fff',
     light: '#C5CBE3',
-    grey:  'hsl(303, 70%, 70%)',// '#cecece',
+    grey: 'hsl(303, 70%, 70%)', // '#cecece',
     dark: 'hsl(303, 60%, 40%)',
     exp: 'hsl(285, 60%,90%)',
   },
@@ -17,7 +18,8 @@ export const colors = {
     light: 'hsl(228, 34.9%, 23.1%)',
     dark: '#284187',
   },
-  background: { // green
+  background: {
+    // green
     //light: 'hsl(120, 100%, 96%)',
     base: 'hsl(120, 100%, 95%)',
     light: 'hsl(192, 15% 94%)', // white header background

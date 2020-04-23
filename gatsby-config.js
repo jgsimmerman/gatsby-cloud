@@ -1,12 +1,12 @@
 //import dotenv from 'dotenv'
 //dotenv.config({ silent: true })
-require('dotenv').config()
+require('dotenv').config();
 
 const config = require('./config/site');
 
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
@@ -90,7 +90,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    
+
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
@@ -102,66 +102,66 @@ module.exports = {
     //     // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
     //   },
     // },
-    
+
     {
-        resolve: `gatsby-plugin-netlify`,
-        options: {
-          headers: {
-            "/*": [
-              "Access-Control-Allow-Origin: *",
-              "Access-Control-Allow-Headers: Content-Type",
-            ],
-          }
-        }     
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*': [
+            'Access-Control-Allow-Origin: *',
+            'Access-Control-Allow-Headers: Content-Type',
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-source-stripe`,
       options: {
-        objects: ["Sku", "Coupon"],
+        objects: ['Sku', 'Coupon'],
         secretKey: process.env.STRIPE_API_SECRET,
         downloadFiles: true,
-        auth: false
+        auth: false,
       },
     },
     {
-			resolve: `gatsby-plugin-pinterest-twitter-facebook`,
-			options: {
-				delayTimer: 100,
-				pinterest: {
-					enable: true,
-					tall: true,
-					round: false
-				},
-				// twitter: {
-				// 	enable: true,
-				// 	containerSelector: '.twitter-container',
-				// 	handle: process.env.GATSBY_TWITTER_SOURCE,
-				// 	showFollowButton: true,
-				// 	showTimeline: true,
-				// 	showFollowerCount: true,
-				// 	timelineTweetCount: 1,
-				// 	width: null,
-				// 	height: null,
-				// 	noHeader: true,
-				// 	noFooter: true,
-				// 	noBorders: true,
-				// 	noScrollbar: true,
-				// 	transparent: true,
-				// },
-				// facebook: {
-				// 	enable: true,
-				// 	containerSelector: '.facebook-container',
-				// 	profile: process.env.GATSBY_FACEBOOK_SOURCE,
-				// 	// width: 340,
-				// 	// height: 500,
-				// 	tabs: 'timeline, events, messages',
-				// 	hideCover: false,
-				// 	showFacepile: true,
-				// 	smallHeader: false,
-				// 	adaptContainerWidth: true
-				// },
-			},
-		},
+      resolve: `gatsby-plugin-pinterest-twitter-facebook`,
+      options: {
+        delayTimer: 100,
+        pinterest: {
+          enable: true,
+          tall: true,
+          round: false,
+        },
+        // twitter: {
+        // 	enable: true,
+        // 	containerSelector: '.twitter-container',
+        // 	handle: process.env.GATSBY_TWITTER_SOURCE,
+        // 	showFollowButton: true,
+        // 	showTimeline: true,
+        // 	showFollowerCount: true,
+        // 	timelineTweetCount: 1,
+        // 	width: null,
+        // 	height: null,
+        // 	noHeader: true,
+        // 	noFooter: true,
+        // 	noBorders: true,
+        // 	noScrollbar: true,
+        // 	transparent: true,
+        // },
+        // facebook: {
+        // 	enable: true,
+        // 	containerSelector: '.facebook-container',
+        // 	profile: process.env.GATSBY_FACEBOOK_SOURCE,
+        // 	// width: 340,
+        // 	// height: 500,
+        // 	tabs: 'timeline, events, messages',
+        // 	hideCover: false,
+        // 	showFacepile: true,
+        // 	smallHeader: false,
+        // 	adaptContainerWidth: true
+        // },
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-owa`,
     //   options: {
@@ -212,8 +212,8 @@ module.exports = {
       options: {
         // include the PureChat js snippet
         enabled: true,
-        // your website id, extract from the snippet provided by purechat 
-        websiteId: `95d36fea-f481-4495-8662-b3f118d5b387`, 
+        // your website id, extract from the snippet provided by purechat
+        websiteId: `95d36fea-f481-4495-8662-b3f118d5b387`,
       },
     },
     // "gatsby-theme-gallery",

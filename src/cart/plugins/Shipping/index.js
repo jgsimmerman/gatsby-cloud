@@ -1,5 +1,5 @@
- import React, { Fragment } from 'react'
- import ShippingMethodsList from './list'
+import React, { Fragment } from 'react';
+import ShippingMethodsList from './list';
 
 // export default class Shipping extends React.Component {
 //   render() {
@@ -39,7 +39,7 @@
 //       </Fragment>
 //     )
 //   }
-  
+
 // }
 
 export default class Shipping extends React.Component {
@@ -50,6 +50,6 @@ export default class Shipping extends React.Component {
         <textarea name="forDriver"></textarea>
         <img src="/market-tracking-pixel-52.png" />
       </Fragment>
-    )
+    );
   }
 }

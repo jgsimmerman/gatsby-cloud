@@ -1,8 +1,8 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const openState = new State({
-	open: false,
-	init: false,
-})
+  open: false,
+  init: false,
+});
 
-export default openState
+export default openState;

@@ -1,13 +1,16 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const defaults = {
-	customer: null,
-}
+  customer: null,
+};
 
-const customerState = new State({...defaults}, {
-	reset(){
-		this.setState({...defaults})
-	},
-})
+const customerState = new State(
+  { ...defaults },
+  {
+    reset() {
+      this.setState({ ...defaults });
+    },
+  }
+);
 
-export default customerState
+export default customerState;

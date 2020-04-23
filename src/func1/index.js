@@ -1,9 +1,9 @@
-import submitStripeInfo from './submit-stripe-info'
-import submitStripeOrder from './submit-stripe-order'
+import submitStripeInfo from './submit-stripe-info';
+import submitStripeOrder from './submit-stripe-order';
 // import sendSparkpostConfirmation from './send-sparkpost-confirmation'
 
 export {
-	submitStripeInfo,
-	submitStripeOrder,
-	// sendSparkpostConfirmation,
-}
+  submitStripeInfo,
+  submitStripeOrder,
+  // sendSparkpostConfirmation,
+};

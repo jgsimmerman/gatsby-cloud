@@ -1,15 +1,18 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const defaults = {
-	totals: {},
-	products: [],
-	meta: {},
-}
+  totals: {},
+  products: [],
+  meta: {},
+};
 
-const successState = new State({...defaults}, {
-	reset(){
-		this.setState({...defaults})
-	},
-})
+const successState = new State(
+  { ...defaults },
+  {
+    reset() {
+      this.setState({ ...defaults });
+    },
+  }
+);
 
-export default successState
+export default successState;

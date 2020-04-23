@@ -1,5 +1,5 @@
-import inputs from './inputs'
+import inputs from './inputs';
 
 export default function unregisterInput(input) {
-	delete inputs[input.props.name]
+  delete inputs[input.props.name];
 }

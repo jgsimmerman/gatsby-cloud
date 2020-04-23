@@ -22,11 +22,11 @@
 //         }
 //       }
 //     `}
-    
+
 //     render={({ skus }) => (
 //       <div>
 //         {skus.edges.map(({ node: sku }) => (
-//           <p key={sku.id}>{sku.attributes.name} - {sku.id} - {sku.inventory.quantity}</p> 
+//           <p key={sku.id}>{sku.attributes.name} - {sku.id} - {sku.inventory.quantity}</p>
 //         ))}
 //       </div>
 //     )}

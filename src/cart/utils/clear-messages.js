@@ -1,8 +1,8 @@
-import messagesState from '../state/status-messages'
+import messagesState from '../state/status-messages';
 
 export default function clearMessages() {
-	messagesState.setState({
-		errors: [],
-		info: [],
-	})
+  messagesState.setState({
+    errors: [],
+    info: [],
+  });
 }

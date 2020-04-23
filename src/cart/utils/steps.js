@@ -1,9 +1,3 @@
-const steps = [
-	`cart`,
-	`info`,
-	`shipping`,
-	`payment`,
-	`complete`,
-]
+const steps = [`cart`, `info`, `shipping`, `payment`, `complete`];
 
-export default steps
+export default steps;

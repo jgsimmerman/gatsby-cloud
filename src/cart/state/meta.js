@@ -1,13 +1,16 @@
-import { State } from 'statable'
+import { State } from 'statable';
 
 const defaults = {
-	meta: {},
-}
+  meta: {},
+};
 
-const openState = new State({...defaults}, {
-	reset(){
-		this.setState({...defaults})
-	},
-})
+const openState = new State(
+  { ...defaults },
+  {
+    reset() {
+      this.setState({ ...defaults });
+    },
+  }
+);
 
-export default openState
+export default openState;

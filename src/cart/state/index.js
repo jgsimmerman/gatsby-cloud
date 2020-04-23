@@ -1,12 +1,12 @@
-export { default as addedToCartState } from './added-to-cart'
-export { default as customerState } from './customer'
-export { default as metaState } from './meta'
-export { default as openState } from './open'
-export { default as productsState } from './products'
-export { default as settingsState } from './settings'
-export { default as shippingState } from './shipping'
-export { default as statusMessagesState } from './status-messages'
-export { default as stepState } from './step'
-export { default as successState } from './success'
-export { default as totalsState } from './totals'
-export { findShippingMethod } from './shipping'
+export { default as addedToCartState } from './added-to-cart';
+export { default as customerState } from './customer';
+export { default as metaState } from './meta';
+export { default as openState } from './open';
+export { default as productsState } from './products';
+export { default as settingsState } from './settings';
+export { default as shippingState } from './shipping';
+export { default as statusMessagesState } from './status-messages';
+export { default as stepState } from './step';
+export { default as successState } from './success';
+export { default as totalsState } from './totals';
+export { findShippingMethod } from './shipping';

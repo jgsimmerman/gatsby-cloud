@@ -1,0 +1,11 @@
+name = "sweetleaf"
+type = "webpack"
+account_id = "bd87b8cc38294a660782e84c60b6b804"
+workers_dev = true
+route = ""
+zone_id = ""
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"
+exclude = ["downloads", "functions", "blog", "auth", "static"]
