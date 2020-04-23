@@ -154,14 +154,14 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-// exports.onPostBuild = () => {
-//   const srcLocation = path.join(__dirname, `src/lambda-build`);
-//   const outputLocation = path.join(__dirname, `public/functions`);
-//   if (!fs.existsSync(outputLocation)) {
-//     fs.mkdirSync(outputLocation);
-//   }
-//   return zipFunctions(srcLocation, outputLocation);
-// };
+exports.onPostBuild = () => {
+  const srcLocation = path.join(__dirname, `src/lambda-build`);
+  const outputLocation = path.join(__dirname, `public/functions`);
+  if (!fs.existsSync(outputLocation)) {
+    fs.mkdirSync(outputLocation);
+  }
+  return zipFunctions(srcLocation, outputLocation);
+};
 
 /* Allows named imports */
 exports.onCreateWebpackConfig = ({ actions }) => {
