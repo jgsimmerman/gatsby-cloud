@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -19,6 +19,8 @@ jobs:
       - name: Install deps
         run: npm install
       - name: Build docs
+        with:
+          STRIPE_API_SECRET: ${{secrets.STRIPE_API_SECRET}}
         run: npm run build
       - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
