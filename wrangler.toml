@@ -4,8 +4,8 @@ account_id = "bd87b8cc38294a660782e84c60b6b804"
 workers_dev = true
 route = ""
 zone_id = ""
-
+apiToken = "SNIsYxL_MBoDuX1blhUz8TU9ssJPCOTRD5HkYhKg"
 [site]
 bucket = "./public"
 entry-point = "workers-site"
-exclude = ["downloads", "functions", "blog", "auth", "static"]
+exclude = ["downloads", "functions", "blog", "auth"]
