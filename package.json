@@ -112,7 +112,7 @@
     "react-transition-group": "^4.1.1",
     "react-typography": "^0.16.19",
     "statable": "^0.3.2",
-    "stripe": "^7.14.0",
+    "stripe": "^8.46.0",
     "styled-components": "^4.4.1",
     "styled-grid-component": "^1.1.13",
     "sweetleaf-lock": "^1.0.1",
