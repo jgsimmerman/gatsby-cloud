@@ -20,12 +20,11 @@ jobs:
         run: npm install
       - name: Build docs
         env: 
-          STRIPE_API_SECRET: ${{secrets.STRIPE_API_SECRET}}
-          stripeApiSecret: ${{secrets.stripeApiSecret}}
+          STRIPE_API_SECRET: ${{ secrets.STRIPE_API_SECRET }}
+          stripeApiSecret: ${{ secrets.stripeApiSecret }}
         run: npm run build
       - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          stripeApiSecret: ${{secrets.stripeApiSecret}}
-          workingDirectory: 'workers-site'
+          stripeApiSecret: ${{ secrets.stripeApiSecret }}
