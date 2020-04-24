@@ -42,15 +42,13 @@ async function handleRequest(request) {
 		const r = new Router()
     // Replace with the approriate paths and handlers
     r.get('.*/bar', () => new Response('responding for /bar'))
-    r.get('.*/foo', request => handler(request))
-    r.post('.*/foo.*', request => handler(request))
-    r.get('/demos/router/foo', request => fetch(request)) // return the response from the origin
+     // return the response from the origin
     r.get('/test', request => test(request))
     r.get('/shipping-stripe', request => shipping(request))
     r.get('/order-stripe', request => order(request))
     r.get('/info-stripe', request => info(request))
 
-    r.get('/', () => new Response('Hello worker!')) // return a default message for the root route
+     // return a default message for the root route
 
     const resp = await r.route(request)
     return resp
