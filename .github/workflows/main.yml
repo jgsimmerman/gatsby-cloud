@@ -28,4 +28,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           stripeApiSecret: ${{secrets.stripeApiSecret}}
-          
+          workingDirectory: 'workers-site'
