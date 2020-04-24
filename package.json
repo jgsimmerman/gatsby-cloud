@@ -118,7 +118,8 @@
     "sweetleaf-lock": "^1.0.1",
     "typeface-candal": "0.0.72",
     "typeface-open-sans": "0.0.54",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
