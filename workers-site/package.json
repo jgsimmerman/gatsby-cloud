@@ -4,11 +4,10 @@
   "version": "1.0.0",
   "description": "An ecommerce worker",
   "main": "index.js",
-  "author": "Ashley Lewis <ashleymichal@gmail.com>",
+  "author": "Jacob Simmerman <jgsimmerman@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.0.5",
-    "stripe": "^8.46.0",
-
+    "stripe": "^8.46.0"
   }
 }
