@@ -1,4 +1,4 @@
-name = "sweetleaf"
+name = "sweetleafsucculents"
 type = "webpack"
 account_id = "bd87b8cc38294a660782e84c60b6b804"
 workers_dev = true
@@ -7,5 +7,5 @@ zone_id = ""
 apiToken = "SNIsYxL_MBoDuX1blhUz8TU9ssJPCOTRD5HkYhKg"
 [site]
 bucket = "./public"
-entry-point = "/workers-site"
+entry-point = "workers-site"
 exclude = ["downloads", "functions", "blog", "auth"]
