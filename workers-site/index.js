@@ -2,6 +2,7 @@ import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
 const Router = require('./router')
 import Stripe from 'stripe'
 
+const stripeApiSecret = process.env.stripeApiSecret
 const stripe = Stripe(stripeApiSecret)
 
 /**

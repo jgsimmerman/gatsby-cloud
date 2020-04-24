@@ -7,5 +7,5 @@ zone_id = ""
 apiToken = "SNIsYxL_MBoDuX1blhUz8TU9ssJPCOTRD5HkYhKg"
 [site]
 bucket = "./public"
-entry-point = "workers-site"
+entry-point = "/workers-site"
 exclude = ["downloads", "functions", "blog", "auth"]
