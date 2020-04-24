@@ -1,7 +1,7 @@
 const { EnvironmentPlugin } = require("webpack");
 
 module.exports = {
-  entry: "./workers-site/index.js",
+  entry: "./",
   plugins: [
     new EnvironmentPlugin({
       stripeApiSecret: 'unknown',
