@@ -71,7 +71,7 @@ export default async function submitOrder(opt = {}) {
 	}
 
 	body.products = productsState.state.products
-	const lightrailLineItems = bodyproducts.map(prod => ({
+	const lightrailLineItems = body.products.map(prod => ({
 		productId: prod.name,
 		unitPrice: prod.price,
 		quantity: prod.quantity,
