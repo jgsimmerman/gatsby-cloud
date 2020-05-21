@@ -16,7 +16,7 @@ import shippingState from '../state/shipping'
 import successState from '../state/success'
 import * as uuid from "uuid";
 
-// const Lightrail = require('lightrail');
+// const Lightrail = require('lightrail-client');
  
 // Lightrail.configure({
 //   apiKey: '<LIGHTRAIL API KEY>'

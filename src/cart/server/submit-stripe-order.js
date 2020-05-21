@@ -1,6 +1,6 @@
 import Stripe from 'stripe'
 import noop from '../utils/noop'
-const Lightrail = require('lightrail');
+const Lightrail = require('lightrail-client');
  
 
 export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIKey, transaction, verbose }) {
