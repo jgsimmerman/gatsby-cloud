@@ -92,17 +92,17 @@ export default async function submitOrder(opt = {}) {
 		sources: [
 			{
 				rail: "lightrail",
-				code: "First_Test"
+				code: "First_Test_LIGHTRAIL"
 			},
 			{
 				rail: 'stripe',
-				code: body.payment
+				code: body.payment.id
 			}
 		]
 	}
 
 
-
+	console.log('token: ', body.payment)
 	//console.log('Lightrail ', body.products)
 	const {
 		subtotal,
