@@ -120,7 +120,7 @@ export default async function submitOrder(opt = {}) {
 
 	let data
 	try {
-		data = await fetch(settingsState.state.orderWebhook, body)
+		data = await fetch(settingsState.state.orderWebhook, transaction)
 	}
 	catch (err) {
 		data = {}
