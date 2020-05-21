@@ -1,7 +1,12 @@
 import Stripe from 'stripe'
 import noop from '../utils/noop'
+const Lightrail = require('lightrail');
+ 
+Lightrail.configure({
+  apiKey: LIGHTRAIL_API_KEY
+})
 
-export default async function submitStripeOrder({ stripeApiSecret, body, verbose }) {
+export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIKey, body, verbose }) {
 	let log = noop
 	let error = noop
 	if(verbose){
@@ -12,6 +17,10 @@ export default async function submitStripeOrder({ stripeApiSecret, body, verbose
 	if(typeof body === `string`){
 		body = JSON.parse(body)
 	}
+
+	Lightrail.configure({
+		apiKey: lightrailAPIKey
+	})
 
 	// Validate product prices & stock here
 	log(`submitStripeOrder received from invoke:`, body)
@@ -50,11 +59,12 @@ export default async function submitStripeOrder({ stripeApiSecret, body, verbose
 	if (res.success) {
 		let req
 		try {
-			req = await stripe.orders.pay(res.meta.orderId, {
-				email: body.infoEmail,
-				source: body.payment.id,
-			})
-			res.success = req.status === `paid`
+			req = await Lightrail.transactions.checkout(body)
+			// req = await stripe.orders.pay(res.meta.orderId, {
+			// 	email: body.infoEmail,
+			// 	source: body.payment.id,
+			// })
+			//res.success = req.status === `paid`
 			log(`submitStripeOrder received from Stripe after order placement:`, req)
 		}
 		catch (err) {

@@ -16,11 +16,11 @@ import shippingState from '../state/shipping'
 import successState from '../state/success'
 import * as uuid from "uuid";
 
-const Lightrail = require('lightrail');
+// const Lightrail = require('lightrail');
  
-Lightrail.configure({
-  apiKey: '<LIGHTRAIL API KEY>'
-})
+// Lightrail.configure({
+//   apiKey: '<LIGHTRAIL API KEY>'
+// })
 
 var table = getStateList(JSON.parse(`["all-abbrv"]`))
 
@@ -85,7 +85,7 @@ export default async function submitOrder(opt = {}) {
 		taxRate: 0,
 	}))
 	console.log('Lightrail lineItems: ', lineItems)
-	const transaction = await Lightrail.transactions.checkout({
+	const transaction = {
 		id: uuid.v4().substring(0, 24),
 		currency: "USD",
 		lineItems,
@@ -99,7 +99,7 @@ export default async function submitOrder(opt = {}) {
 				code: token
 			}
 		]
-	})
+	}
 
 
 
@@ -116,7 +116,7 @@ export default async function submitOrder(opt = {}) {
 	}
 	body.event = `order`
 
-	console.log(`BODY SENT TO WEBHOOK [zygote cart]: `, body)
+	console.log(`BODY SENT TO WEBHOOK [zygote cart]: `, transaction)
 
 	let data
 	try {

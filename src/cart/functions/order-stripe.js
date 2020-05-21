@@ -9,6 +9,7 @@ export async function handler({ body }) {
 
 	const res = await submitStripeOrder({
 		stripeApiSecret: process.env.STRIPE_API_SECRET,
+		lightrailAPIKey: process.env.LIGHTRAIL_API_KEY,
 		body,
 		verbose: true,
 	})
