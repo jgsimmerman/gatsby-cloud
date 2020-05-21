@@ -34,26 +34,26 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 	}
 
 	// Update shipping method
-	if (body.selectedShippingMethod) {
-		try {
-			const req = await stripe.orders.update(res.meta.orderId, {
-				selected_shipping_method: body.selectedShippingMethod,
-			})
-			res.success = true
-			log(`submitStripeOrder received from Stripe after updated shipping:`, req)
-		}
-		catch (err) {
-			error(err)
-			if (err.code === `out_of_inventory` || err.code === `resource_missing`) {
-				res.step = `cart`
-				res.messages.error.push(`Sorry! One or more items in your cart have gone out of stock. Please remove these products or try again later.`)
-			}
-			else if (err.message) {
-				res.messages.error.push(err.message)
-			}
-			res.success = false
-		}
-	}
+	// if (body.selectedShippingMethod) {
+	// 	try {
+	// 		const req = await stripe.orders.update(res.meta.orderId, {
+	// 			selected_shipping_method: body.selectedShippingMethod,
+	// 		})
+	// 		res.success = true
+	// 		log(`submitStripeOrder received from Stripe after updated shipping:`, req)
+	// 	}
+	// 	catch (err) {
+	// 		error(err)
+	// 		if (err.code === `out_of_inventory` || err.code === `resource_missing`) {
+	// 			res.step = `cart`
+	// 			res.messages.error.push(`Sorry! One or more items in your cart have gone out of stock. Please remove these products or try again later.`)
+	// 		}
+	// 		else if (err.message) {
+	// 			res.messages.error.push(err.message)
+	// 		}
+	// 		res.success = false
+	// 	}
+	// }
 
 	// Pay for order
 	if (res.success) {
@@ -80,7 +80,7 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 		}
 
 	}
-	console.log(req.body.totals);
+	console.log('req.body.totals ', req.body.totals);
 	res = {
 		...body,
 		...res,
