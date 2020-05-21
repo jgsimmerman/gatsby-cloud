@@ -71,6 +71,7 @@ export default async function submitOrder(opt = {}) {
 	}
 
 	body.products = productsState.state.products
+	console.log('body.products from /cart/utils/submit-order.js', body.products)
 	const {
 		subtotal,
 		modifications,
