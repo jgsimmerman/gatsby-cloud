@@ -71,6 +71,14 @@ export default async function submitOrder(opt = {}) {
 	}
 
 	body.products = productsState.state.products
+	const lightrailLineItems = bodyproducts.map(prod => ({
+		productId: prod.name,
+		unitPrice: prod.price,
+		quantity: prod.quantity,
+		taxRate: 0,
+	}))
+	console.log('lightrailLineItems: ', lightrailLineItems)
+
 	console.log('body.products from /cart/utils/submit-order.js', body.products)
 	const {
 		subtotal,
