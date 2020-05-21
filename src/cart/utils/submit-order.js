@@ -14,6 +14,13 @@ import displayError from './display-error'
 import metaState from '../state/meta'
 import shippingState from '../state/shipping'
 import successState from '../state/success'
+import * as uuid from "uuid";
+
+const Lightrail = require('lightrail');
+ 
+Lightrail.configure({
+  apiKey: '<LIGHTRAIL API KEY>'
+})
 
 var table = getStateList(JSON.parse(`["all-abbrv"]`))
 
@@ -71,15 +78,32 @@ export default async function submitOrder(opt = {}) {
 	}
 
 	body.products = productsState.state.products
-	const lightrailLineItems = body.products.map(prod => ({
+	const lineItems = body.products.map(prod => ({
 		productId: prod.name,
 		unitPrice: prod.price,
 		quantity: prod.quantity,
 		taxRate: 0,
 	}))
-	console.log('lightrailLineItems: ', lightrailLineItems)
+	console.log('Lightrail lineItems: ', lineItems)
+	const transaction = await Lightrail.transactions.checkout({
+		id: uuid.v4().substring(0, 24),
+		currency: "USD",
+		lineItems,
+		sources: [
+			{
+				rail: "lightrail",
+				code: "First_Test"
+			},
+			{
+				rail: 'stripe',
+				code: token
+			}
+		]
+	})
 
-	console.log('body.products from /cart/utils/submit-order.js', body.products)
+
+
+	//console.log('Lightrail ', body.products)
 	const {
 		subtotal,
 		modifications,
@@ -104,18 +128,18 @@ export default async function submitOrder(opt = {}) {
 	}
 
 	console.log(`DATA FROM ORDER WEBOOK [zygote cart]: `, data)
-	if (!data.success) {
-		if (!messagesState.state.errors.length) {
-			displayError(settingsState.state.orderSubmitError)
-		}
-		if (data.returnTo) {
-			stepState.setState({ step: data.returnTo })
-		}
-		else {
-			stepState.setState({ step: `payment` })
-		}
-	}
-	else {
+	// if (!data.success) {
+	// 	if (!messagesState.state.errors.length) {
+	// 		displayError(settingsState.state.orderSubmitError)
+	// 	}
+	// 	if (data.returnTo) {
+	// 		stepState.setState({ step: data.returnTo })
+	// 	}
+	// 	else {
+	// 		stepState.setState({ step: `payment` })
+	// 	}
+	// }
+	// else {
 		successState.setState({
 			totals: { ...totalsState.state },
 			products: [...productsState.state.products],
@@ -126,7 +150,7 @@ export default async function submitOrder(opt = {}) {
 		productsState.reset()
 		metaState.reset()
 		shippingState.reset()
-	}
+	//}
 
 	stepState.setState({ processing: false })
 }
