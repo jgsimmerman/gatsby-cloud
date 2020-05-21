@@ -2,11 +2,8 @@ import Stripe from 'stripe'
 import noop from '../utils/noop'
 const Lightrail = require('lightrail');
  
-Lightrail.configure({
-  apiKey: LIGHTRAIL_API_KEY
-})
 
-export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIKey, body, verbose }) {
+export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIKey, transaction, verbose }) {
 	let log = noop
 	let error = noop
 	if(verbose){
@@ -14,8 +11,8 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 		error = console.error
 	}
 	const stripe = Stripe(stripeApiSecret)
-	if(typeof body === `string`){
-		body = JSON.parse(body)
+	if(typeof transaction === `string`){
+		transaction = JSON.parse(transaction)
 	}
 
 	Lightrail.configure({
@@ -26,12 +23,12 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 	log(`submitStripeOrder received from invoke:`, body)
 
 	// Create empty result object to be sent later
-	let res = {
-		messages: {
-			error: [],
-		},
-		meta: body.meta,
-	}
+	// let res = {
+	// 	messages: {
+	// 		error: [],
+	// 	},
+	// 	meta: transaction.meta,
+	// }
 
 	// Update shipping method
 	// if (body.selectedShippingMethod) {
@@ -56,10 +53,10 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 	// }
 
 	// Pay for order
-	if (res.success) {
+	//if (res.success) {
 		let req
 		try {
-			req = await Lightrail.transactions.checkout(body)
+			req = await Lightrail.transactions.checkout(transaction)
 			// req = await stripe.orders.pay(res.meta.orderId, {
 			// 	email: body.infoEmail,
 			// 	source: body.payment.id,
@@ -79,10 +76,10 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 			res.success = false
 		}
 
-	}
-	console.log('req.body.totals ', req.body.totals);
+	//}
+	console.log('req.transaction.totals ', req.transaction.totals);
 	res = {
-		...body,
+		...transaction,
 		...res,
 	}
 

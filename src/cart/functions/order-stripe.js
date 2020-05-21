@@ -5,12 +5,12 @@ import {
 } from '../server'
 dotenv.config({ silent: true })
 
-export async function handler({ body }) {
+export async function handler({ transaction }) {
 
 	const res = await submitStripeOrder({
 		stripeApiSecret: process.env.STRIPE_API_SECRET,
 		lightrailAPIKey: process.env.LIGHTRAIL_API_KEY,
-		body,
+		transaction,
 		verbose: true,
 	})
 
