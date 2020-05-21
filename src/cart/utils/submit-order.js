@@ -103,6 +103,7 @@ export default async function submitOrder(opt = {}) {
 
 
 	console.log('token: ', body.payment)
+	console.log('body.payment.id: ', body.payment.id)
 	//console.log('Lightrail ', body.products)
 	const {
 		subtotal,
