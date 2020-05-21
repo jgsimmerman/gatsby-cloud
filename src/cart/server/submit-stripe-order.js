@@ -80,7 +80,7 @@ export default async function submitStripeOrder({ stripeApiSecret, lightrailAPIK
 		}
 
 	}
-
+	console.log(req.body.totals);
 	res = {
 		...body,
 		...res,

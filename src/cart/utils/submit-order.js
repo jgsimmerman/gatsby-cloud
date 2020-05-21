@@ -96,7 +96,7 @@ export default async function submitOrder(opt = {}) {
 			},
 			{
 				rail: 'stripe',
-				code: token
+				code: body.payment
 			}
 		]
 	}
