@@ -49,6 +49,13 @@ export default function changeStep(step) {
 		})),
 	}
 
+	const lightrailLineItems = products.map(prod => ({
+		productId: prod.name,
+		unitPrice: prod.price,
+		quantity: prod.quantity,
+		taxRate: 0,
+	}))
+	console.log('lightrailLineItems: ', lightrailLineItems)
 	if(`dataLayer` in window){
 		const data = {
 			event: `zygoteStep-${gtmStep()}`,
