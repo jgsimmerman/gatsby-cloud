@@ -31,7 +31,8 @@ sku: "sku_H4iYL52yull1Zv"
 # options: '[{ label: "Small", value: 1 }, { label: "Large", value: 2 }]'
 published: true
 available: 1
-inStock: "http://schema.org/InStock"
+# inStock: "http://schema.org/InStock"
+inStock: "http://schema.org/OutOfStock"
 story: "Graptosedum 'Alpenglow' (Graptopetalum × Sedum hybrid)"
 
 ---

@@ -188,7 +188,7 @@ const Index = ({ data }) => {
       </PostWrapper>
       <PostWrapper>
           <p>
-            Announcement: We will be adding many new plants to our inventory over the coming weeks. You can follow us on social media to get the latest updates!
+            Announcement: We will be adding many new plants to our inventory over the coming weeks. We will also be updating our succulent catalog. You can follow us on social media to get the latest updates!
           </p>
       </PostWrapper>
 

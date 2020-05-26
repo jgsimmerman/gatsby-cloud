@@ -110,6 +110,22 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
   let option3 = post.option3;
   let option4 = post.option4;
 
+  let inStock = post.inStock;
+ 
+  let stocked = () => {
+    if (inStock == "http://schema.org/OutOfStock") {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  
+  let disabled = () =>{
+    if (stocked) return "false"
+    else return "true"
+  }
+ 
   let sku1 = post.sku;
   let sku2 = post.sku2;
   let sku3 = post.sku3;
@@ -184,7 +200,8 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
             </p>
             <p>
               {/* Refactor with useEffect to fetch stripe data */}
-              Only {itemQuantity} left in stock!
+              {/* Only {itemQuantity} left in stock! */}
+              
             </p>
             <Cost>
               <strong>${price}</strong>
@@ -216,8 +233,9 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
               />
             )}
             
-
+                
             <button id="addToCart"
+              
               style={{
                 backgroundColor: 'hsl(228, 34.9%, 83.1%)',
                 borderRadius: '5px',
@@ -243,6 +261,7 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
                   stock: itemQuantity,
                 })
               }
+              disabled={disabled ? "true" : "false"}
             >
               Add to Cart!
             </button>
