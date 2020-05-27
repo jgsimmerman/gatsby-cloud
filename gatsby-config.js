@@ -56,13 +56,6 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          {
-            resolve: `gatsby-remark-images-medium-zoom`, // Important!
-            options: { 
-              margin: 36,
-              scrollOffset: 0,
-            },
-          },
           'gatsby-remark-prismjs',
         ],
       },
