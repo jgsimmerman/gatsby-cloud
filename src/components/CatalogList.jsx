@@ -130,7 +130,7 @@ const CatalogContainer = styled(Container)`
   }
 `;
 
-const CatalogList = ({ path, cover, title, date, excerpt, tags, story }) => (
+const CatalogList = ({ path, cover, title, date, excerpt, tags, story, inStock }) => (
   // <CatalogContainer>
     <Wrapper>
       <Image>
@@ -145,6 +145,10 @@ const CatalogList = ({ path, cover, title, date, excerpt, tags, story }) => (
         </Link>
         {/* <TagsBlock list={tags} /> */}
         {/* {story} */}
+        { 
+          (inStock == "http://schema.org/OutOfStock") && <p> Out of Stock -- Check back soon!</p>
+          
+        }
       </Information>
     </Wrapper>
   // </CatalogContainer>

@@ -90,6 +90,7 @@ const Catalog = ({ data }) => {
             tags={node.frontmatter.tags}
             excerpt={node.story}
             //pic={node.frontmatter.pic.childImageSharp.fluid}
+            inStock={node.frontmatter.inStock}
           />
         ))}
 

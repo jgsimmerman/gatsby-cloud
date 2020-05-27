@@ -71,6 +71,7 @@ const echeveria = ({ data }) => {
             date={node.frontmatter.date}
             tags={node.frontmatter.tags}
             excerpt={node.excerpt}
+            inStock={node.frontmatter.inStock}
           />
         ))}
       </CatalogWrapper>
