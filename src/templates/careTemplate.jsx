@@ -59,7 +59,7 @@ const care = ({ data, pageContext }) => {
         <CareWrapper>
           <Img fluid={pic} alt="" />
         </CareWrapper>
-        {/* <Img fluid={pic} alt="" /> */}
+        <Img fluid={pic} alt="" />
         <CareWrapper>
 
         </CareWrapper>
@@ -108,7 +108,7 @@ export const query = graphql`
         tags
         pic {
           childImageSharp {
-            fluid( maxWidth: 500, quality: 75, traceSVG: { color: "#2B2B2F" }) {
+            fluid( maxWidth: 600, quality: 98, traceSVG: { color: "#2B2B2F" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

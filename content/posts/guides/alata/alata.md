@@ -1,7 +1,7 @@
 ---
 path: "/care/alata"
 cover: "./alata1.jpg"
-pic: "./alata1.jpg"
+pic: "./banner.png"
 date: "2018-10-15"
 title: "Care Guide for Nepenthes"
 published: true
