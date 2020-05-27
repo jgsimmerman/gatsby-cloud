@@ -170,6 +170,7 @@ export const query = graphql`
             fluid( maxWidth: 500, quality: 75, traceSVG: { color: "#2B2B2F" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
+
           }
         }
         pic2 {

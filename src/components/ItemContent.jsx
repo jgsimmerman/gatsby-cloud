@@ -208,7 +208,7 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
               {/* Only {itemQuantity} left in stock! */}
               
             </p>
-            { stocked ? <p>Availability: In stock!</p> : <p>Availability: Check back soon!</p>}
+            { stocked ? <p>Availability: In stock!</p> : <p>Availability: <strong>Check back soon!</strong></p>}
 
             <Cost>
               <strong>${price}</strong>
