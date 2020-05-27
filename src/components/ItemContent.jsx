@@ -21,7 +21,8 @@ import { Grid, GridItem } from 'styled-grid-component';
 import { openCart, addToCart } from 'cart';
 // import { SRLWrapper } from "simple-react-lightbox";
 import Select from 'react-select';
-import Zoom from 'react-medium-image-zoom';
+//import Zoom from 'react-medium-image-zoom';
+//import ReactImageMagnify from 'react-image-magnify';
 
 // https://www.reddit.com/r/gatsbyjs/comments/fmgm2k/gatsbyimage_zoom/
 
@@ -98,7 +99,7 @@ const Table = styled.table`
   }
 `;
 
-const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
+const ItemContent = ({ post, skuObj, skus, html, publicImg }) => {
   let pic1 = post.pic.childImageSharp.fluid;
   let pic2 = post.pic2.childImageSharp.fluid;
   let pic3 = post.pic3.childImageSharp.fluid;
@@ -111,26 +112,25 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
   let option4 = post.option4;
 
   let inStock = post.inStock;
- 
-  let stocked = stock(inStock)
-  
-  function stock(inStock)  {
-    if (inStock == "http://schema.org/OutOfStock") {
-      return false
+
+  let stocked = stock(inStock);
+
+  function stock(inStock) {
+    if (inStock == 'http://schema.org/OutOfStock') {
+      return false;
     } else {
-      return true
+      return true;
     }
   }
 
-  console.log("stocked ", stocked);
-  console.log("inStock ", inStock)
+  console.log('stocked ', stocked);
+  console.log('inStock ', inStock);
 
-  
-  let disabled = () =>{
-    if (stocked) return "false"
-    else return "true"
-  }
- 
+  let disabled = () => {
+    if (stocked) return 'false';
+    else return 'true';
+  };
+
   let sku1 = post.sku;
   let sku2 = post.sku2;
   let sku3 = post.sku3;
@@ -170,195 +170,201 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
     { label: `${option3}`, value: 3 },
     { label: `${option4}`, value: 4 },
   ];
-  if(sku3 === undefined || sku3 === null) {
+  if (sku3 === undefined || sku3 === null) {
     scaryAnimals.pop();
     scaryAnimals.pop();
   }
   //console.log(scaryAnimals)
   return (
     <>
-    
-    <Wrapper>
-      <Grid
-        display="flex"
-        //flex-wrap="wrap"
-        width="100%"
-        height="100%"
-        templateColumns="repeat(auto-fill, minmax(19rem, 1fr))"
-        //templateColumns="repeat(auto-fill, 16rem)"
-        gap="1rem"
-        //autoRows="max-content"
-      >
-        <GridItem >
-          <Image>
-            <Img fluid={pic} alt="" />
-          </Image>
-
-          {/* <SRLWrapper>
+      <Wrapper>
+        <Grid
+          display="flex"
+          //flex-wrap="wrap"
+          width="100%"
+          height="100%"
+          templateColumns="repeat(auto-fill, minmax(19rem, 1fr))"
+          //templateColumns="repeat(auto-fill, 16rem)"
+          gap="1rem"
+          //autoRows="max-content"
+        >
+          <GridItem>
+            <Image>
+              <Img fluid={pic} alt="" />
+            </Image>
+           
+            {/* <SRLWrapper>
           </SRLWrapper> */}
-        </GridItem>
-        <GridItem >
-          <Info>
-            <ItemName>{post.title}</ItemName>
-            <p>
-              <em>{post.scientificname}</em>
-            </p>
-            <p>
-              {/* Refactor with useEffect to fetch stripe data */}
-              {/* Only {itemQuantity} left in stock! */}
-              
-            </p>
-            { stocked ? <p>Availability: In stock!</p> : <p>Availability: <strong>Check back soon!</strong></p>}
+          </GridItem>
+          <GridItem>
+            <Info>
+              <ItemName>{post.title}</ItemName>
+              <p>
+                <em>{post.scientificname}</em>
+              </p>
+              <p>
+                {/* Refactor with useEffect to fetch stripe data */}
+                {/* Only {itemQuantity} left in stock! */}
+              </p>
+              {stocked ? (
+                <p>Availability: In stock!</p>
+              ) : (
+                <p>
+                  Availability: <strong>Check back soon!</strong>
+                </p>
+              )}
 
-            <Cost>
-              <strong>${price}</strong>
-            </Cost>
-            <p>{/* <a href={`${post.care}`}>Care Instructions</a> */}</p>
-            {option1 && (
-              <Select
-                options={scaryAnimals}
-                onChange={opt => {
-                  if (opt.value == 1) {
-                    itemPrice = price1;
-                    itemSku = sku1;
-                  } else if (opt.value == 2) {
-                    itemPrice = price2;
-                    itemSku = sku2;
-                  } else if (opt.value == 3) {
-                    itemPrice = price3;
-                    itemSku = sku3;
-                  } else if (opt.value == 4) {
-                    itemPrice = price4;
-                    itemSku = sku4;
-                  }
-                  setPrice(itemPrice);
-                  setSku(itemSku);
-                  // console.log(`new Sku ${itemSku}`);
-                  // console.log(itemPrice);
-                  // console.log(opt.label, opt.value);
+              <Cost>
+                <strong>${price}</strong>
+              </Cost>
+              <p>{/* <a href={`${post.care}`}>Care Instructions</a> */}</p>
+              {option1 && (
+                <Select
+                  options={scaryAnimals}
+                  onChange={opt => {
+                    if (opt.value == 1) {
+                      itemPrice = price1;
+                      itemSku = sku1;
+                    } else if (opt.value == 2) {
+                      itemPrice = price2;
+                      itemSku = sku2;
+                    } else if (opt.value == 3) {
+                      itemPrice = price3;
+                      itemSku = sku3;
+                    } else if (opt.value == 4) {
+                      itemPrice = price4;
+                      itemSku = sku4;
+                    }
+                    setPrice(itemPrice);
+                    setSku(itemSku);
+                    // console.log(`new Sku ${itemSku}`);
+                    // console.log(itemPrice);
+                    // console.log(opt.label, opt.value);
+                  }}
+                />
+              )}
+
+              <button
+                id="addToCart"
+                style={{
+                  backgroundColor: 'hsl(228, 34.9%, 83.1%)',
+                  borderRadius: '5px',
+                  marginTop: '36px',
+                  border: '0',
+                  color: 'hsl(228, 34.9%, 23.1%)',
+                  fontWeight: '500',
+                  paddingBottom: '15px',
+                  paddingTop: '15px',
+                  paddingRight: '35px',
+                  paddingLeft: '35px',
+                  fontSize: '24',
                 }}
-              />
-            )}
-            
-                
-            <button id="addToCart"
-              style={{
-                backgroundColor: 'hsl(228, 34.9%, 83.1%)',
-                borderRadius: '5px',
-                marginTop: '36px',
-                border: '0',
-                color: 'hsl(228, 34.9%, 23.1%)',
-                fontWeight: '500',
-                paddingBottom: '15px',
-                paddingTop: '15px',
-                paddingRight: '35px',
-                paddingLeft: '35px',
-                fontSize: '24',
-              }}
-              onClick={() =>{
-                if(stocked) {
-                  addToCart({
-                    id: sku, //`${post.sku}`,
-                    name: post.title,
-                    image: itemImage, //`https://via.placeholder.com/75x75`, //itemImage,
-                    description: ``,
-                    price: Math.round(price * 100),
-                    shippable: true,
-                    quantity: 1,
-                    stock: itemQuantity,
-                  })
-                }
-              }
-              }
-            >
-              Add to Cart!
-            </button>
-            {/* <button onClick={openCart}>Open Cart</button> */}
-          </Info>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem justifyContent="center">
-          <Image2 onMouseEnter={() => setPic(pic1)}>
-            <Img fluid={pic1} alt="" />
-          </Image2>
-          <Image2 onMouseEnter={() => setPic(pic2)}>
-            <Img fluid={pic2} alt="" />
-          </Image2>
-          <Image2 onMouseEnter={() => setPic(pic3)}>
-            <Img fluid={pic3} alt="" />
-          </Image2>
-          <Image2 onMouseEnter={() => setPic(pic4)}>
-            <Img fluid={pic4} alt="" />
-          </Image2>
-          {/* <SRLWrapper>
+                onClick={() => {
+                  if (stocked) {
+                    addToCart({
+                      id: sku, //`${post.sku}`,
+                      name: post.title,
+                      image: itemImage, //`https://via.placeholder.com/75x75`, //itemImage,
+                      description: ``,
+                      price: Math.round(price * 100),
+                      shippable: true,
+                      quantity: 1,
+                      stock: itemQuantity,
+                    });
+                  }
+                }}
+              >
+                Add to Cart!
+              </button>
+              {/* <button onClick={openCart}>Open Cart</button> */}
+            </Info>
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem justifyContent="center">
+            <Image2 onMouseEnter={() => setPic(pic1)}>
+              <Img fluid={pic1} alt="" />
+            </Image2>
+            <Image2 onMouseEnter={() => setPic(pic2)}>
+              <Img fluid={pic2} alt="" />
+            </Image2>
+            <Image2 onMouseEnter={() => setPic(pic3)}>
+              <Img fluid={pic3} alt="" />
+            </Image2>
+            <Image2 onMouseEnter={() => setPic(pic4)}>
+              <Img fluid={pic4} alt="" />
+            </Image2>
+            {/* <SRLWrapper>
           </SRLWrapper> */}
-        </GridItem>
-
-        
-        
-
-      </Grid>
-      <Grid>
-        <br />
-        <GridItem column=" 1 / 2" row="2">
-          <Story
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          </GridItem>
+        </Grid>
+        <Grid>
           <br />
-        </GridItem>
-      </Grid>
+          <GridItem column=" 1 / 2" row="2">
+            <Story
+              className="blog-post-content"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+            <br />
+          </GridItem>
+        </Grid>
 
-      <hr></hr>
+        <hr></hr>
 
-      {post.primarycolor &&
-       <Table>
-        <thead>
-            <tr>
-              <th colspan="2" >Plant Details</th>
-            </tr>
-          </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Primary Color: </th>
-            <td>{post.primarycolor}</td>
-          </tr>
-          {post.stresscolors &&
-          <tr>
-            <th scope="row">Stress Color:</th>
-            <td>{post.stresscolors}</td>
-          </tr>
-          }
-          {post.bloomcolor &&
-            <tr>
-              <th scope="row">Bloom Color: </th>
-              <td>{post.bloomcolor}</td>
-            </tr>
-          }
-          {post.petsafe  &&
-            <tr>
-              <th scope="row">Pet Safe: </th>
-              <td>{post.petsafe}</td>
-            </tr>
-          }
-          {post.seasonality &&
-            <tr>
-              <th scope="row">Seasonality:</th>
-              <td>{post.seasonality}</td>
-            </tr>
-          }
-          {post.temperature &&
-            <tr>
-              <th scope="row">Temperature: </th>
-              <td>{post.temperature}</td>
-            </tr>
-          }
-        </tbody>
-      </Table> }
-      <Yotpo sku={post.sku} price={post.price} title={post.title} path={post.path} pic={publicImg} />
+        {post.primarycolor && (
+          <Table>
+            <thead>
+              <tr>
+                <th colspan="2">Plant Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Primary Color: </th>
+                <td>{post.primarycolor}</td>
+              </tr>
+              {post.stresscolors && (
+                <tr>
+                  <th scope="row">Stress Color:</th>
+                  <td>{post.stresscolors}</td>
+                </tr>
+              )}
+              {post.bloomcolor && (
+                <tr>
+                  <th scope="row">Bloom Color: </th>
+                  <td>{post.bloomcolor}</td>
+                </tr>
+              )}
+              {post.petsafe && (
+                <tr>
+                  <th scope="row">Pet Safe: </th>
+                  <td>{post.petsafe}</td>
+                </tr>
+              )}
+              {post.seasonality && (
+                <tr>
+                  <th scope="row">Seasonality:</th>
+                  <td>{post.seasonality}</td>
+                </tr>
+              )}
+              {post.temperature && (
+                <tr>
+                  <th scope="row">Temperature: </th>
+                  <td>{post.temperature}</td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
+        )}
+        <Yotpo
+          sku={post.sku}
+          price={post.price}
+          title={post.title}
+          path={post.path}
+          pic={publicImg}
+        />
 
-      {/* <div class="yotpo yotpo-main-widget" 
+        {/* <div class="yotpo yotpo-main-widget" 
         data-product-id={post.sku} 
         data-price={post.price} 
         data-currency="USD" 
@@ -367,7 +373,7 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
         data-image-url={post.pic}
       > 
       </div> */}
-    </Wrapper>
+      </Wrapper>
     </>
   );
 };
