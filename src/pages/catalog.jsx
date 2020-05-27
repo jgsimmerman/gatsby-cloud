@@ -73,7 +73,11 @@ const Catalog = ({ data }) => {
       <PostWrapper>
           <h2>Currently Available Ornamental Plants </h2>
       </PostWrapper> 
-
+      <PostWrapper>
+          <p>
+            Announcement: We will be adding many new plants to our inventory over the coming weeks. We will also be updating our succulent catalog. You can follow us on social media to get the latest updates!
+          </p>
+      </PostWrapper>
       <CatalogWrapper>
       
         {edges.map(({ node }) => (
@@ -135,6 +139,7 @@ export const query = graphql`
             tags
             id
             price
+            inStock
             available
             date(formatString: "MM.DD.YYYY")
             pic {

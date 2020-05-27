@@ -29,7 +29,8 @@ price: 19.99
 # price2: 39.99
 available: 1
 published: true
-inStock: "http://schema.org/InStock"
+# inStock: "http://schema.org/InStock"
+inStock: "http://schema.org/OutOfStock"
 story: "Succulent Five Pack Bundle - Echeveria Assortment"
 ---
 

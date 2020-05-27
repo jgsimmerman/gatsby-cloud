@@ -105,6 +105,7 @@ export const query = graphql`
             path
             tags
             id
+            inStock
             price
             date(formatString: "MM.DD.YYYY")
             cover {

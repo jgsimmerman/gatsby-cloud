@@ -112,13 +112,18 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
 
   let inStock = post.inStock;
  
-  let stocked = () => {
+  let stocked = stock(inStock)
+  
+  function stock(inStock)  {
     if (inStock == "http://schema.org/OutOfStock") {
       return false
     } else {
       return true
     }
   }
+
+  console.log("stocked ", stocked);
+  console.log("inStock ", inStock)
 
   
   let disabled = () =>{
@@ -203,6 +208,8 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
               {/* Only {itemQuantity} left in stock! */}
               
             </p>
+            { stocked ? <p>Availability: In stock!</p> : <p>Availability: Check back soon!</p>}
+
             <Cost>
               <strong>${price}</strong>
             </Cost>
@@ -235,7 +242,6 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
             
                 
             <button id="addToCart"
-              
               style={{
                 backgroundColor: 'hsl(228, 34.9%, 83.1%)',
                 borderRadius: '5px',
@@ -249,23 +255,24 @@ const ItemContent = ({ post, skuObj, skus, html, publicImg}) => {
                 paddingLeft: '35px',
                 fontSize: '24',
               }}
-              onClick={() =>
-                addToCart({
-                  id: sku, //`${post.sku}`,
-                  name: post.title,
-                  image: itemImage, //`https://via.placeholder.com/75x75`, //itemImage,
-                  description: ``,
-                  price: Math.round(price * 100),
-                  shippable: true,
-                  quantity: 1,
-                  stock: itemQuantity,
-                })
+              onClick={() =>{
+                if(stocked) {
+                  addToCart({
+                    id: sku, //`${post.sku}`,
+                    name: post.title,
+                    image: itemImage, //`https://via.placeholder.com/75x75`, //itemImage,
+                    description: ``,
+                    price: Math.round(price * 100),
+                    shippable: true,
+                    quantity: 1,
+                    stock: itemQuantity,
+                  })
+                }
               }
-              disabled={disabled ? "true" : "false"}
+              }
             >
               Add to Cart!
             </button>
-            
             {/* <button onClick={openCart}>Open Cart</button> */}
           </Info>
         </GridItem>

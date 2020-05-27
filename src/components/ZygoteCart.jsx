@@ -31,18 +31,18 @@ const ZygoteCart = props => {
   return(
     
     <Cart
-     //stripeApiKey="pk_live_nMctV4G1movcajzQsjXet2Zs000zybvAUV"
-     stripeApiKey="pk_test_Vc8z3p2pdxHFQgxhbbhIXtyv00GnPddsjV"
+     stripeApiKey="pk_live_nMctV4G1movcajzQsjXet2Zs000zybvAUV"
+     //stripeApiKey="pk_test_Vc8z3p2pdxHFQgxhbbhIXtyv00GnPddsjV"
 
      // stripeApiKey={process.env.STRIPE_API_PUBLIC}
 
-      // infoWebhook='/.netlify/functions/info-stripe'
-      // orderWebhook='/.netlify/functions/order-stripe'
-      // shippingWebhook='/.netlify/functions/shipping-stripe'
+      infoWebhook='/.netlify/functions/info-stripe'
+      orderWebhook='/.netlify/functions/order-stripe'
+      shippingWebhook='/.netlify/functions/shipping-stripe'
 
-      infoWebhook='https://af9684c9.ngrok.io/.netlify/functions/info-stripe'
-      orderWebhook='https://af9684c9.ngrok.io/.netlify/functions/order-stripe'
-      shippingWebhook='https://af9684c9.ngrok.io/.netlify/functions/shipping-stripe'
+      // infoWebhook='https://af9684c9.ngrok.io/.netlify/functions/info-stripe'
+      // orderWebhook='https://af9684c9.ngrok.io/.netlify/functions/order-stripe'
+      // shippingWebhook='https://af9684c9.ngrok.io/.netlify/functions/shipping-stripe'
 
       // infoWebhook={process.env.INFO_WEBHOOK}
       // orderWebhook={process.env.ORDER_WEBHOOK}
