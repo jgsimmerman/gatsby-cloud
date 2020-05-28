@@ -20,50 +20,25 @@ export default async function members(event) {
   const sweetleafMemberProgramId = '722f71b4-455ed875-6605aff5'
 
   // Create Contact
-  let contact = {}
-  let contactId =''
-
-  const getContactId = async () =>{
-    try {
-      const contacts = await Lightrail.contacts.listContacts({
-        email: {
-          eq: metadata.email,
-        },
-      });
-      contact = contacts.body[0]
-      console.log('try contactId', contact.id)
-      return contact.id
-
-    } catch {
-      const newContact = {
-        id: `cus_${uuid.v4().substring(0, 6)}`,
-        email: metadata.email,
-      };
-       contact = await Lightrail.contacts.createContact(newContact);
-       console.log('catch contactId', contact.id)
-       return contact.id
-    }
-    // } finally {
-    //   contactId = contact.id || 'exampleID123'
-    //   console.log('finally contactId ', contactId)
-    //   return contact.id
-    // }
-  }
-
-  contactId = getContactId
-  const accountId = `account_${uuid.v4().substring(0, 6)}`,
-
-  // Create Account
-  const createAccount = async (accountId, contactId, sweetleafMemberProgramId) => {
-    
-    const accountParams = {
-      id: accountId,
-      programId: sweetleafMemberProgramId,
-      contactId: contactId,
-      balance: 100, 
-      //currency: 'Points'
-    }
-    const value = await Lightrail.values.createValue(createAccount);
+  const contactId = ''
+  try {
+    const contacts = await Lightrail.contacts.listContacts({
+      email: {
+        eq: metadata.email,
+      },
+    });
+    const contact = contacts.body[0]
+    console.log('try contact', contact)
+  } catch {
+    const newContact = {
+      id: uuid.v4().substring(0, 24),
+      email: metadata.email,
+    };
+    const contact = await Lightrail.contacts.createContact(newContact);
+    console.log('catch contact', contact)
+  } finally {
+    const contactId = contact.body.id || 'exampleID123'
+    console.log('finally contactId ', contactId)
   }
   createAccount(accountId, contactId, sweetleafMemberProgramId)
 
