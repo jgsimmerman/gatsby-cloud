@@ -22,7 +22,8 @@ export default async function members(event) {
   // Create Contact
   let contact = {}
   let contactId =''
-  const getContactId = () =>{
+
+  const getContactId = async () =>{
     try {
       const contacts = await Lightrail.contacts.listContacts({
         email: {
@@ -53,7 +54,7 @@ export default async function members(event) {
   const accountId = `account_${uuid.v4().substring(0, 6)}`,
 
   // Create Account
-  const createAccount = (accountId, contactId, sweetleafMemberProgramId) => {
+  const createAccount = async (accountId, contactId, sweetleafMemberProgramId) => {
     
     const accountParams = {
       id: accountId,
