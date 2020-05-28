@@ -10,7 +10,6 @@ export default function MembersArea() {
     if (auth.loggedIn) {
       auth
         .fetch('https://sweetleaf-gc.netlify.app/.netlify/functions/members')
-        //.fetch('https://50e08548.ngrok.io/.netlify/functions/members')
         .then(res => res.json())
         .then(payload => {
           setMembers(payload);
@@ -31,5 +30,5 @@ export default function MembersArea() {
     );
   }
 
-  return <div>Account Email: {members.email}, Contact ID: {members.contactId}.</div>;
+  return <div>Account Email: {members.email}, Account ID: {members.contactId}.</div>;
 }
