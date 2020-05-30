@@ -3,42 +3,10 @@ import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-import { Header, ImageLinks, ItemList, SocialIcons, Mailchimp, Wheel } from 'components';
+import { Header, ItemList, SocialIcons, Mailchimp, Wheel } from 'components';
 import { Layout } from 'layouts';
 import theme from '../../config/theme';
 import Img from 'gatsby-image';
-
-import Loadable from 'react-loadable';
-import loadable from '@loadable/component'
-const pMinDelay = require('p-min-delay');
-
-// const Products = loadable(() => import('../components/ImageLinks'))
-const Products = loadable(() => pMinDelay(import('../components/ImageLinks')), 1000)
-
-import Skeleton from 'react-loading-skeleton';
-
-const PostWrapper = styled.main`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 2rem 2rem 2rem 2rem;
-  color: ${props => props.theme.colors.white.base};
-
-  .SocialIcon {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 25px;
-    height: 25px;
-  }
-  @media (max-width: 1000px) {
-    margin: 4rem 2rem 1rem 2rem;
-  }
-  @media (max-width: 700px) {
-    margin: 4rem 1rem 1rem 1rem;
-  }
-`;
 
 const Wrapper = styled.section`
   margin-bottom: 2rem;
@@ -167,189 +135,29 @@ const Title = styled.h2`
 
 const Price = styled.p``;
 
-const Index = ({ data }) => {
-
-  const images = [
-    data.imageNine.childImageSharp.fluid, 
-    data.imageTen.childImageSharp.fluid, 
-    data.imageSeven.childImageSharp.fluid, 
-    data.imageFive.childImageSharp.fluid,
-    data.imageEight.childImageSharp.fluid
-  ]
-
-  const links = [
-    {
-      link: '/catalog/cacti/',
-      img: data.imageThirteen.childImageSharp.fluid,
-      title: 'Cactus'
-    },
-    {
-      link: '/catalog/fairy-garden/mixed-hypoestes/',
-      img: data.imageNine.childImageSharp.fluid,
-      title: 'Mixed Colors Hypoestes',
-    },
-    {
-      link: '/catalog/carnivorous-plants/alata/',
-      img: data.imageTen.childImageSharp.fluid,
-      title: 'Nepenthes',
-    },
-    {
-      link: '/catalog/fairy-garden/mini-white/',
-      img: data.imageSeven.childImageSharp.fluid,
-      title: 'Mini White,',
-    },
-    {
-      link: '/catalog/fairy-garden/mini-pixie/',
-      img: data.imageFive.childImageSharp.fluid,
-      title: 'Mini Pixie',
-    },
-    {
-      link: '/catalog/fairy-garden/rose-hypoestes/',
-      img: data.imageEight.childImageSharp.fluid,
-      title: 'Rose Hypestes',
-    },
-  ];
-  //const { edges } = data.allMarkdownRemark;
-
-  // useEffect(() => {
-
-  //   if ( typeof window.yotpo !== "undefined" &&  yotpo.initialized && post) {
-  //     window.yotpo.initWidgets();
-
-  //     setTimeout(function() {
-  //       window.yotpo.refreshWidgets()
-  //     }, 1000)
-  //   }
-  // }, [post]);
-  // const links = [
-  //   {
-  //     link: '/catalog/fairy-garden/mixed-hypoestes/',
-  //     img: data.imageNine.childImageSharp.fluid,
-  //     title: 'Mixed Colors Hypoestes',
-  //   },
-  //   {
-  //     link: '/catalog/carnivorous-plants/alata/',
-  //     img: data.imageTen.childImageSharp.fluid,
-  //     title: 'Nepenthes',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/mini-white/',
-  //     img: data.imageSeven.childImageSharp.fluid,
-  //     title: 'Mini White,',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/mini-pixie/',
-  //     img: data.imageFive.childImageSharp.fluid,
-  //     title: 'Mini Pixie',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/rose-hypoestes/',
-  //     img: data.imageEight.childImageSharp.fluid,
-  //     title: 'Rose Hypestes',
-  //   },
-  // ];
+const ImageLinks = (links) => {
+  
+  links = links
 
   return (
-    <Layout>
-      <Helmet title={'Sweet Leaf Succulents'} />
+    <>
+    {links.links.map(linky => (
+      <Wrapper>
+        <Image>
+          <Img fluid={linky.img || <Skeleton />} alt={linky.title} />
+        </Image>
+        <StyledLink to={linky.link}>
+          <Info>
+            <Title>{linky.title}</Title>
+            {/* <Price>$9.95</Price> */}
+          </Info>
+        </StyledLink>
+      </Wrapper>
+    ))}
+      </>
+  )
 
-      <Header title="Sweet Leaf Succulents">
-        {/* <Img fluid={data.logo.childImageSharp.fluid} /> */}
-      </Header>
-      <PostWrapper>
-        <h2> Featured Plants </h2>
-      </PostWrapper>
-      <PostWrapper>
-        <p>
-          Announcement: We will be adding many new plants to our inventory over
-          the coming weeks. We will also be updating our succulent catalog. You
-          can follow us on social media to get the latest updates!
-        </p>
-      </PostWrapper>
-
-      <PostWrapper>
-        <Wrapper2>
-          <Image>
-            <Img
-              fluid={data.imageTwelve.childImageSharp.fluid || <Skeleton />}
-              alt="Succulents"
-            />
-          </Image>
-          <StyledLink to="/catalog/succulents/">
-            <Info>
-              <Title>Succulents</Title>
-              {/* <Price>$9.95</Price> */}
-            </Info>
-          </StyledLink>
-        </Wrapper2>
-        {/* <Wrapper>
-          <Image>
-            <Img
-              fluid={data.imageThirteen.childImageSharp.fluid || <Skeleton />}
-              alt="Cacti"
-            />
-          </Image>
-          <StyledLink to="/catalog/cacti/">
-            <Info>
-              <Title>Cactus</Title>
-            </Info>
-          </StyledLink>
-        </Wrapper> */}
-        {/* <Wrapper>
-          <Image>
-            <Img
-              fluid={data.imageEleven.childImageSharp.fluid || <Skeleton />}
-              alt="Nepenthes Kokedama"
-            />
-          </Image>
-          <StyledLink to="/catalog/carnivorous-plants/kokedama">
-            <Info>
-              <Title>Nepenthes Kokedama</Title>
-              
-            </Info>
-          </StyledLink>
-        </Wrapper> */}
-
-        {/* <ImageLinks links={links}/> */}
-        <Products links={links} />
-       
-      </PostWrapper>
-      <PostWrapper>
-        <h4>
-          {' '}
-          <Link to="/catalog/">See our full catalog for more!</Link>
-        </h4>
-      </PostWrapper>
-      {/* WHEEL IS BELOW THIS LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
-      {/* <PostWrapper>
-        <Wheel />
-      </PostWrapper> */}
-    </Layout>
-  );
-};
-
-export default Index;
-
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            excerpt: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              cover: PropTypes.object.isRequired,
-              path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              tags: PropTypes.array,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-};
+}
 
 export const fluidImage = graphql`
   fragment fluidImage on File {
@@ -463,3 +271,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default ImageLinks
