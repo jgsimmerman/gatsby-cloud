@@ -179,6 +179,11 @@ const Index = ({ data }) => {
 
   const links = [
     {
+      link: '/catalog/carnivorous-plants/red-dragon',
+      img: data.imageFourteen.childImageSharp.fluid,
+      title: 'Red Dragon Fly Traps'
+    },
+    {
       link: '/catalog/cacti/',
       img: data.imageThirteen.childImageSharp.fluid,
       title: 'Cactus'
@@ -448,6 +453,13 @@ export const pageQuery = graphql`
       }
     }
     imageThirteen: file(relativePath: { eq: "cacti.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400, quality: 80) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    imageFourteen: file(relativePath: { eq: "VFTRedDragon.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 400, quality: 80) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
