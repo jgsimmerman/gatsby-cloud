@@ -3,17 +3,27 @@ import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-import { Header, ImageLinks, ItemList, SocialIcons, Mailchimp, Wheel } from 'components';
+import {
+  Header,
+  ImageLinks,
+  ItemList,
+  SocialIcons,
+  Mailchimp,
+  Wheel,
+} from 'components';
 import { Layout } from 'layouts';
 import theme from '../../config/theme';
 import Img from 'gatsby-image';
 
 import Loadable from 'react-loadable';
-import loadable from '@loadable/component'
+import loadable from '@loadable/component';
 const pMinDelay = require('p-min-delay');
 
 // const Products = loadable(() => import('../components/ImageLinks'))
-const Products = loadable(() => pMinDelay(import('../components/ImageLinks')), 1000)
+const Products = loadable(
+  () => pMinDelay(import('../components/ImageLinks')),
+  1000
+);
 
 import Skeleton from 'react-loading-skeleton';
 
@@ -168,30 +178,24 @@ const Title = styled.h2`
 const Price = styled.p``;
 
 const Index = ({ data }) => {
-
   const images = [
-    data.imageNine.childImageSharp.fluid, 
-    data.imageTen.childImageSharp.fluid, 
-    data.imageSeven.childImageSharp.fluid, 
+    data.imageNine.childImageSharp.fluid,
+    data.imageTen.childImageSharp.fluid,
+    data.imageSeven.childImageSharp.fluid,
     data.imageFive.childImageSharp.fluid,
-    data.imageEight.childImageSharp.fluid
-  ]
+    data.imageEight.childImageSharp.fluid,
+  ];
 
   const links = [
     {
-      link: '/catalog/carnivorous-plants/red-dragon',
-      img: data.imageFourteen.childImageSharp.fluid,
-      title: 'Red Dragon Fly Traps'
-    },
-    {
       link: '/catalog/cacti/',
       img: data.imageThirteen.childImageSharp.fluid,
-      title: 'Cactus'
+      title: 'Cactus',
     },
     {
-      link: '/catalog/fairy-garden/mixed-hypoestes/',
-      img: data.imageNine.childImageSharp.fluid,
-      title: 'Mixed Colors Hypoestes',
+      link: '/catalog/carnivorous-plants/red-dragon',
+      img: data.imageFourteen.childImageSharp.fluid,
+      title: 'Red Dragon Fly Traps',
     },
     {
       link: '/catalog/carnivorous-plants/alata/',
@@ -317,7 +321,6 @@ const Index = ({ data }) => {
 
         {/* <ImageLinks links={links}/> */}
         <Products links={links} />
-       
       </PostWrapper>
       <PostWrapper>
         <h4>
