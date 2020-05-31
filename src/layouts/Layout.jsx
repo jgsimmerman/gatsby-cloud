@@ -18,7 +18,7 @@ import { Cart, openCart, addToCart, Totals, Zygote, totalsState, State } from 'c
 //loadable
 import loadable from '@loadable/component';
 const pMinDelay = require('p-min-delay');
-const Zygote = loadable(
+const LoadableZygote = loadable(
   () => pMinDelay(import('../components/ZygoteCart')),
   3000
 );
@@ -106,7 +106,7 @@ const Layout = ({ children }) => (
           {children}
         </div>
         <Footer />
-        <Zygote />
+        <LoadableZygote />
       </div>
     </Fragment>
   </ThemeProvider>
