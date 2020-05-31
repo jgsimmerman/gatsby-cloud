@@ -20,7 +20,7 @@ import loadable from '@loadable/component';
 const pMinDelay = require('p-min-delay');
 const Zygote = loadable(
   () => pMinDelay(import('../components/ZygoteCart')),
-  1000
+  3000
 );
 
 //react-loadable
