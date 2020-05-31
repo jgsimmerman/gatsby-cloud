@@ -171,7 +171,7 @@ const SEO = ({ title, description, banner, pathname, price, sku, availability, a
             </script> */}
           {/* <!-- End Google Tag Manager --> */}
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-            <script async src="https://googletagmanager.com/gtag/js?id=UA-158535531-1"></script>
+            {/* <script async src="https://googletagmanager.com/gtag/js?id=UA-158535531-1"></script> */}
 
             
             {/* <script>

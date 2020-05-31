@@ -15,8 +15,15 @@ import { NavBar, Footer, BurgerMenu, SocialIcons } from 'layouts';
 import theme from '../../config/theme';
 import headroom from '../styles/headroom';
 import { Cart, openCart, addToCart, Totals, Zygote, totalsState, State } from 'cart';
+//loadable
+import loadable from '@loadable/component';
+const pMinDelay = require('p-min-delay');
+const Zygote = loadable(
+  () => pMinDelay(import('../components/ZygoteCart')),
+  1000
+);
 
-
+//react-loadable
 function Loading(props) {
   if (props.error) {
     return <div>Something went wrong! <button onClick= { props.retry }>Retry</button></div>;
@@ -32,7 +39,7 @@ function Loading(props) {
 const LoadableBurgerMenu = Loadable({
   loader: () => import('../components/BurgerMenu'),
   loading: Loading,
-  delay: 500, // .5 seconds
+  delay: 1500, // 1.5 seconds
   timeout: 150000, // 15 seconds
 });
 
@@ -99,7 +106,7 @@ const Layout = ({ children }) => (
           {children}
         </div>
         <Footer />
-        <ZygoteCart />
+        <Zygote />
       </div>
     </Fragment>
   </ThemeProvider>
