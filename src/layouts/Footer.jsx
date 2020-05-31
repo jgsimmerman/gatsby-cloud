@@ -23,6 +23,11 @@ const Text = styled.div`
   color: ${props => props.theme.colors.white.base};
 `;
 
+const FooterLinks = styled.span`
+  padding-left: 10px;
+  padding-right: 10px;
+
+`;
 const Footer = () => (
   <Wrapper>
     <Text>
@@ -31,15 +36,18 @@ const Footer = () => (
         Sweet Leaf Succulents and Ornamental Plants, LLC{' '}
         {/* <a href="https://twitter.com/jacobsimmerman">Follow us on twitter!</a> */}
       </div>
-      <span>
-        <Link to="/shipping/">Shipping Policies</Link> {' | '}
-      </span>
-      <span>
-        <Link to="/privacy/">Privacy Policy</Link> {' | '}
-      </span>
-      <span>
-        <Link to="/terms/">Terms and Conditions</Link> {' '}
-      </span>
+      <FooterLinks>
+        <Link to="/shipping/">Shipping Policies</Link> 
+      </FooterLinks>
+      {'   |   '}
+      <FooterLinks>
+        <Link to="/privacy/">Privacy Policy</Link> 
+      </FooterLinks>
+      {'   |   '}
+      <FooterLinks>
+        <Link to="/terms/">Terms and Conditions</Link>
+      </FooterLinks>
+      {' '}
     </Text>
   </Wrapper>
 );
