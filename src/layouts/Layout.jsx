@@ -17,31 +17,35 @@ import headroom from '../styles/headroom';
 import { Cart, openCart, addToCart, Totals, Zygote, totalsState, State } from 'cart';
 //loadable
 import loadable from '@loadable/component';
+
+
 const pMinDelay = require('p-min-delay');
 const LoadableZygote = loadable(
   () => pMinDelay(import('../components/ZygoteCart')),
   3000
 );
 
-//react-loadable
-function Loading(props) {
-  if (props.error) {
-    return <div>Something went wrong! <button onClick= { props.retry }>Retry</button></div>;
-  } else if (props.timedOut) {
-    return <div>Seems like your net is slow.. <button onClick={ props.retry }>Retry</button> </div>
-  } else if (props.pastDelay) {
-    return <p>Loading...</p>;
-  } else {
-    return null;
-  }
-}
+const LoadableBurgerMenu = loadable( ()=> pMinDelay(import('../components/BurgerMenu')), 3000 );
 
-const LoadableBurgerMenu = Loadable({
-  loader: () => import('../components/BurgerMenu'),
-  loading: Loading,
-  delay: 1500, // 1.5 seconds
-  timeout: 150000, // 15 seconds
-});
+//react-loadable
+// function Loading(props) {
+//   if (props.error) {
+//     return <div>Something went wrong! <button onClick= { props.retry }>Retry</button></div>;
+//   } else if (props.timedOut) {
+//     return <div>Seems like your net is slow.. <button onClick={ props.retry }>Retry</button> </div>
+//   } else if (props.pastDelay) {
+//     return <p>Loading...</p>;
+//   } else {
+//     return null;
+//   }
+// }
+
+// const LoadableBurgerMenu = Loadable({
+//   loader: () => import('../components/BurgerMenu'),
+//   loading: Loading,
+//   delay: 1500, // 1.5 seconds
+//   timeout: 150000, // 15 seconds
+// });
 
 //background-color: hsla(228, 34.9%, 88.1%, 0.3);
 
@@ -97,8 +101,8 @@ const Layout = ({ children }) => (
       />
       <SEO />
       
-      <BurgerMenu />
-      {/* <LoadableBurgerMenu /> */}
+      {/* <BurgerMenu /> */}
+      <LoadableBurgerMenu />
       <div className="site">
         
         <NavBar />
