@@ -279,13 +279,13 @@ module.exports = {
           endpoint: 'https://sweetleafsucculents.us18.list-manage.com/subscribe/post?u=a0089393547a91632f9fa7f45&amp;id=dc39dd6a41', // add your MC list endpoint here; see instructions below
       },
     },
-    {
-      resolve: 'gatsby-plugin-load-script',
-      options: {
+    // {
+    //   resolve: 'gatsby-plugin-load-script',
+    //   options: {
         
-        src: 'https://staticw2.yotpo.com/oqoqaYJmZaZJrICMIqc4gz5ehcle2gb97m3WJojY/widget.js',
+    //     src: 'https://staticw2.yotpo.com/oqoqaYJmZaZJrICMIqc4gz5ehcle2gb97m3WJojY/widget.js',
         
-      },
-    },
+    //   },
+    // },
   ],
 };

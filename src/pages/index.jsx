@@ -218,45 +218,7 @@ const Index = ({ data }) => {
       title: 'Rose Hypestes',
     },
   ];
-  //const { edges } = data.allMarkdownRemark;
-
-  // useEffect(() => {
-
-  //   if ( typeof window.yotpo !== "undefined" &&  yotpo.initialized && post) {
-  //     window.yotpo.initWidgets();
-
-  //     setTimeout(function() {
-  //       window.yotpo.refreshWidgets()
-  //     }, 1000)
-  //   }
-  // }, [post]);
-  // const links = [
-  //   {
-  //     link: '/catalog/fairy-garden/mixed-hypoestes/',
-  //     img: data.imageNine.childImageSharp.fluid,
-  //     title: 'Mixed Colors Hypoestes',
-  //   },
-  //   {
-  //     link: '/catalog/carnivorous-plants/alata/',
-  //     img: data.imageTen.childImageSharp.fluid,
-  //     title: 'Nepenthes',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/mini-white/',
-  //     img: data.imageSeven.childImageSharp.fluid,
-  //     title: 'Mini White,',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/mini-pixie/',
-  //     img: data.imageFive.childImageSharp.fluid,
-  //     title: 'Mini Pixie',
-  //   },
-  //   {
-  //     link: '/catalog/fairy-garden/rose-hypoestes/',
-  //     img: data.imageEight.childImageSharp.fluid,
-  //     title: 'Rose Hypestes',
-  //   },
-  // ];
+ 
 
   return (
     <Layout>
