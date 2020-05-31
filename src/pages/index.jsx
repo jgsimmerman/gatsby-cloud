@@ -204,7 +204,7 @@ const Index = ({ data }) => {
     {
       link: '/catalog/fairy-garden/mini-white/',
       img: data.imageSeven.childImageSharp.fluid,
-      title: 'Mini White,',
+      title: 'Mini White',
     },
     {
       link: '/catalog/fairy-garden/mini-pixie/',
