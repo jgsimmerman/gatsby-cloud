@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
 
-import Loadable from 'react-loadable';
-
 import { ThemeProvider } from 'emotion-theming';
 import { css, Global } from '@emotion/core';
 import PropTypes from 'prop-types';

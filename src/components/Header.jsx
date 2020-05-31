@@ -1,30 +1,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useStaticQuery, graphql, Link } from "gatsby";
-import theme from '../../config/theme';
-import Img from 'gatsby-image';
+
 import PropTypes from 'prop-types';
-import Loadable from 'react-loadable';
 import { SocialIcons } from 'components';
 
-function Loading(props) {
-  if (props.error) {
-    return <div>Something went wrong! <button onClick= { props.retry }>Retry</button></div>;
-  } else if (props.timedOut) {
-    return <div>Seems like your net is slow.. <button onClick={ props.retry }>Retry</button> </div>
-  } else if (props.pastDelay) {
-    return <p>Loading Social Icons...</p>;
-  } else {
-    return null;
-  }
-}
+import loadable from '@loadable/component';
 
-const LoadableSocialIcons = Loadable({
-  loader: () => import('./SocialIcons'),
-  loading: Loading,
-  delay: 1000, // 1 seconds
-  timeout: 150000, // 15 seconds
-});
+const pMinDelay = require('p-min-delay');
+
+const LoadableSocialIcons = loadable(
+  () => pMinDelay(import('.SocialIcons')),
+  1000
+);
+
 
 const Wrapper = styled.header`
   @media (max-width: ${props => props.theme.breakpoints.s}) {

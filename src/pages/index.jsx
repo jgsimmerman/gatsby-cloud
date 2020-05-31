@@ -15,7 +15,6 @@ import { Layout } from 'layouts';
 import theme from '../../config/theme';
 import Img from 'gatsby-image';
 
-import Loadable from 'react-loadable';
 import loadable from '@loadable/component';
 const pMinDelay = require('p-min-delay');
 
