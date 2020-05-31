@@ -10,7 +10,7 @@ import loadable from '@loadable/component';
 const pMinDelay = require('p-min-delay');
 
 const LoadableSocialIcons = loadable(
-  () => pMinDelay(import('.SocialIcons')),
+  () => pMinDelay(import('./SocialIcons')),
   1000
 );
 

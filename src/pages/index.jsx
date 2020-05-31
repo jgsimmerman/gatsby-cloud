@@ -332,42 +332,7 @@ export const fluidImage = graphql`
 
 export const pageQuery = graphql`
   query {
-    imageOne: file(relativePath: { eq: "echeveria.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    imageTwo: file(relativePath: { eq: "kiwi.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    imageThree: file(relativePath: { eq: "alata1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    imageFour: file(relativePath: { eq: "wandering.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
     imageFive: file(relativePath: { eq: "anglePixie2.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    imageSix: file(relativePath: { eq: "zebra-plant2.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 400, quality: 80) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
