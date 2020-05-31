@@ -284,10 +284,10 @@ const Index = ({ data }) => {
         <Products links={links} />
       </PostWrapper>
       <PostWrapper>
-        <h4>
+        <h3>
           {' '}
           <Link to="/catalog/">See our full catalog for more!</Link>
-        </h4>
+        </h3>
       </PostWrapper>
       {/* WHEEL IS BELOW THIS LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
       {/* <PostWrapper>
