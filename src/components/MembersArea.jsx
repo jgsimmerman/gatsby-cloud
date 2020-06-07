@@ -32,7 +32,7 @@ export default function MembersArea() {
 
   return (
     <div>
-      Account Email: {members.email}, Account ID: {members.contactId}.
+      Account Email: {members.email}, Contact ID: {members.contactId}.
     </div>
   );
 }

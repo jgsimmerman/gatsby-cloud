@@ -20,14 +20,15 @@ export default async function members(event) {
   const sweetleafMemberProgramId = '722f71b4-455ed875-6605aff5'
 
   // Create Contact
-  const contactId = ''
+  let contactId = ''
+  let contact
   try {
     const contacts = await Lightrail.contacts.listContacts({
       email: {
         eq: metadata.email,
       },
     });
-    const contact = contacts.body[0]
+    contact = contacts.body[0]
     console.log('try contact', contact)
   } catch {
     const newContact = {
@@ -37,15 +38,17 @@ export default async function members(event) {
     const contact = await Lightrail.contacts.createContact(newContact);
     console.log('catch contact', contact)
   } finally {
-    const contactId = contact.body.id || 'exampleID123'
+    contactId = contact.body.id || 'exampleID123'
     console.log('finally contactId ', contactId)
   }
-  createAccount(accountId, contactId, sweetleafMemberProgramId)
+  //createAccount(accountId, contactId, sweetleafMemberProgramId)
 
   const contactValuesList = await Lightrail.contacts.listContactsValues(contact)
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ contactId: contactId, accountId: accountId, email: metadata.email }),
+    // body: JSON.stringify({ contactId: contactId, accountId: accountId, email: metadata.email }),
+    body: JSON.stringify({ contactId: contactId,  email: metadata.email }),
+
   };
 }
