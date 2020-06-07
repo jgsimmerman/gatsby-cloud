@@ -134,7 +134,7 @@
     "typeface-candal": "0.0.72",
     "typeface-open-sans": "0.0.54",
     "typography": "^0.16.19",
-    "use-magic-link": "^1.1.0"
+    "use-magic-link": "^1.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
