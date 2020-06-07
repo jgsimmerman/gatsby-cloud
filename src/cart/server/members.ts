@@ -1,4 +1,4 @@
-import { Magic } from '@magic-sdk/admin';
+import { Magic, MagicUserMetadata } from '@magic-sdk/admin';
 
 const Lightrail = require('lightrail-client');
 import * as uuid from 'uuid';
@@ -13,15 +13,15 @@ export default async function members(event) {
   const magicToken = event.headers.authorization.substring(7);
 
   // Authorize the request
-  const metadata = await magic.users.getMetadataByToken(magicToken);
+  const metadata: MagicUserMetadata = await magic.users.getMetadataByToken(magicToken);
   console.log('members.js', metadata);
   //  END MAGIC AUTH
   // START LIGHTRAIL5.0
   const sweetleafMemberProgramId = '722f71b4-455ed875-6605aff5'
 
   // Create Contact
-  let contactId = ''
-  let contact
+  let contactId: string = ''
+  let contact: object;
   try {
     const contacts = await Lightrail.contacts.listContacts({
       email: {
