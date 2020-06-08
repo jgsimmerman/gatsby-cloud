@@ -9,19 +9,19 @@ Lightrail.configure({
 
 export default async function members(event) {
   //  START MAGIC AUTH
-  const magic = new Magic('sk_test_C9795F33831A21B8');
-  const magicToken = event.headers.authorization.substring(7);
+  // const magic = new Magic('sk_test_C9795F33831A21B8');
+  // const magicToken = event.headers.authorization.substring(7);
 
-  // Authorize the request
-  const metadata: MagicUserMetadata = await magic.users.getMetadataByToken(magicToken);
-  console.log('members.js', metadata);
-  //  END MAGIC AUTH
-  // START LIGHTRAIL5.0
-  const sweetleafMemberProgramId = '722f71b4-455ed875-6605aff5'
+  // // Authorize the request
+  // const metadata: MagicUserMetadata = await magic.users.getMetadataByToken(magicToken);
+  // console.log('members.js', metadata);
+  // //  END MAGIC AUTH
+  // // START LIGHTRAIL5.0
+  // const sweetleafMemberProgramId = '722f71b4-455ed875-6605aff5'
 
-  // Create Contact
-  let contactId: string = ''
-  let contact: object;
+  // // Create Contact
+  // let contactId: string = ''
+  // let contact: object;
   // try {
   //   const contacts = await Lightrail.contacts.listContacts({
   //     email: {
