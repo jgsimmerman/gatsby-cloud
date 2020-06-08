@@ -14,9 +14,18 @@ export async function handler(event, context, callback) {
   const magicToken = event.headers.authorization.substring(7);
   console.log(magicToken);
 
-  
-  const res = await members(event)
-  
-  
-  return res
+ const metadata = await magic.users.getMetadataByToken(magicToken);
+ console.log('members.js', metadata);
+
+
+  //const res = await members(event)
+
+  // return res
+
+  return {
+    statusCode: 200,
+    // body: JSON.stringify({ contactId: contactId, accountId: accountId, email: metadata.email }),
+    body: JSON.stringify({ contactId: 'contact1234',  email: metadata.email }),
+
+  };
 }
