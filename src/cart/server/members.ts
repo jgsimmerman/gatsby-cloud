@@ -22,28 +22,28 @@ export default async function members(event) {
   // Create Contact
   let contactId: string = ''
   let contact: object;
-  try {
-    const contacts = await Lightrail.contacts.listContacts({
-      email: {
-        eq: metadata.email,
-      },
-    });
-    contact = contacts.body[0]
-    console.log('try contact', contact)
-  } catch {
-    const newContact = {
-      id: uuid.v4().substring(0, 24),
-      email: metadata.email,
-    };
-    const contact = await Lightrail.contacts.createContact(newContact);
-    console.log('catch contact', contact)
-  } finally {
-    contactId = contact.body.id || 'exampleID123'
-    console.log('finally contactId ', contactId)
-  }
-  //createAccount(accountId, contactId, sweetleafMemberProgramId)
+  // try {
+  //   const contacts = await Lightrail.contacts.listContacts({
+  //     email: {
+  //       eq: metadata.email,
+  //     },
+  //   });
+  //   contact = contacts.body[0]
+  //   console.log('try contact', contact)
+  // } catch {
+  //   const newContact = {
+  //     id: uuid.v4().substring(0, 24),
+  //     email: metadata.email,
+  //   };
+  //   const contact = await Lightrail.contacts.createContact(newContact);
+  //   console.log('catch contact', contact)
+  // } finally {
+  //   contactId = contact.body.id || 'exampleID123'
+  //   console.log('finally contactId ', contactId)
+  // }
+  // //createAccount(accountId, contactId, sweetleafMemberProgramId)
 
-  const contactValuesList = await Lightrail.contacts.listContactsValues(contact)
+  // const contactValuesList = await Lightrail.contacts.listContactsValues(contact)
 
   return {
     statusCode: 200,
